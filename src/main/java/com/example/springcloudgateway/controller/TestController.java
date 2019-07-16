@@ -18,11 +18,11 @@ public class TestController {
                         .filters(f -> f.addRequestHeader("Hello", "World"))
                         .uri(httpUri))
                 .route(p -> p
-                        .host("*.hystrix.com")
+                        .header("key")
                         .filters(f -> f
-                            .hystrix(config -> config
-                                .setName("mycmd")
-                                .setFallbackUri("forward:/fallback")))
+                                .hystrix(config -> config
+                                        .setName("mycmd")
+                                        .setFallbackUri("forward:/fallback")))
                         .uri(httpUri))
                 .build();
     }
