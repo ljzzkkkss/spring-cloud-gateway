@@ -1,5 +1,6 @@
 package com.example.springcloudgateway;
 
+import com.example.springcloudgateway.config.HostAddrKeyResolver;
 import com.example.springcloudgateway.filter.TokenFilter;
 import com.example.springcloudgateway.filter.factory.RequestTimeGatewayFilterFactory;
 import org.springframework.boot.SpringApplication;
@@ -22,5 +23,10 @@ public class SpringCloudGatewayApplication {
         return new TokenFilter();
     }
 
+
+    @Bean
+    public HostAddrKeyResolver hostAddrKeyResolver() {
+        return new HostAddrKeyResolver();
+    }
 
 }
